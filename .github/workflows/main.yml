@@ -27,4 +27,4 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          python review_code.py ${{ github.event.pull_request.url }}
+          python llm_code_review/review_code.py ${{ github.event.pull_request.url }}

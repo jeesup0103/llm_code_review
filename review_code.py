@@ -33,7 +33,7 @@ def get_code_changes(base_url, base_sha, head_sha):
 
 def analyze_code_with_chatgpt(code_diff):
     # Read system prompt from review_prompt.txt file
-    with open('review_prompt.txt', 'r') as file:
+    with open('llm_code_review/review_prompt.txt', 'r') as file:
         system_prompt = file.read()
         
     response = client.chat.completions.create(

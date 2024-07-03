@@ -17,6 +17,7 @@ LLM Code Review is a Python-based tool designed to automate code reviews by leve
     ```sh
     git clone https://github.com/gflamep/llm_code_review.git
     cd llm_code_review
+    
     ```
 
 2. Install the required dependencies:
@@ -24,10 +25,15 @@ LLM Code Review is a Python-based tool designed to automate code reviews by leve
     pip install openai requests python-dotenv
     ```
 
-3. Create a `.env` file in the root directory and add your GitHub token and OpenAI API key:
+3. Create a `.env` file in the root directory and add your GitHub token and OpenAI API key (not needed when using github actions):
     ```env
     GITHUB_TOKEN=your_github_token
     OPENAI_API_KEY=your_openai_api_key
+    ```
+
+4.  Move .github file to target repository to run github actions:
+    ```sh
+    mv .github/ ..
     ```
 
 ## Usage
@@ -36,7 +42,9 @@ To run the code review manually, execute the following command:
 python review_code.py <pr_url>
 ```
 Replace <pr_url> with the URL of the pull request you want to review.
+
 Example: https://api.github.com/repos/yourusername/yourrepo/pulls/1
+
 
 ## Features
 - Automated Code Review: Automatically fetches code changes from a GitHub pull request and generates a review using OpenAI's GPT model.
@@ -80,7 +88,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python review_code.py ${{ github.event.pull_request.url }}
-
 ```
 ### Environment Variables
 Ensure you have the following environment variables set in your .env file:
