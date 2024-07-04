@@ -27,11 +27,17 @@ LLM Code Review is a Python-based tool designed to automate code reviews by leve
 
 3. Create a `.env` file in the root directory and add your GitHub token and OpenAI API key (not needed when using github actions):
     ```env
-    GITHUB_TOKEN=your_github_token
+    GH_TOKEN=your_github_token
     OPENAI_API_KEY=your_openai_api_key
     ```
 
-4.  Move .github file to target repository to run github actions:
+4. Make GitHub repository secrets named GH_TOKEN and OPENAI_API_KEY
+    ```env
+    GH_TOKEN=your_github_token
+    OPENAI_API_KEY=your_openai_api_key
+    ```
+
+5.  Move .github file to target repository to run github actions:
     ```sh
     mv .github/ ..
     ```
